@@ -25,16 +25,16 @@ def run_ensemble_experiment(data: EnsembleInput) -> EnsembleResult:
     seed = data.random_seed
 
     rf = RandomForestClassifier(
-        n_estimators=100,
-        max_depth=5,
-        min_samples_leaf=5,
+        n_estimators=300,
+        max_depth=8,
+        min_samples_leaf=3,
         random_state=seed,
         n_jobs=1
     )
     hgb = HistGradientBoostingClassifier(
         max_iter=100,
         learning_rate=0.05,
-        max_depth=5,
+        max_depth=3,
         random_state=seed
     )
     lr = make_pipeline(StandardScaler(), LogisticRegression(max_iter=1000))
